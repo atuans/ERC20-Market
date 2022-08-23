@@ -19,7 +19,7 @@
     "axios": "^0.27.2",
     "ethers": "^5.6.9",
     "form-data": "^4.0.0",
-    "ipfs-http-client": "^57.0.3",
+    "ipfs-http-client": "^50.1.2",
     "moment": "^2.29.4",
     "moralis": "^1.10.0",
     "next": "12.2.3",
@@ -30,6 +30,7 @@
     "react-simple-hook-modal": "^1.1.0",
     "react-spinners": "^0.13.3",
     "web3": "^1.7.4",
+    "web3modal": "^1.9.8",
     "web3uikit": "^0.1.167"
   },
   "devDependencies": {

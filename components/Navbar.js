@@ -11,8 +11,9 @@ import {BsFillBookmarkFill} from 'react-icons/bs'
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineHistory } from "react-icons/ai";
 import { MarketContext } from '../context/MarketContext';
-
-
+import {BsFillBarChartFill} from 'react-icons/bs'
+import {AiFillFileAdd} from 'react-icons/ai'
+import {AiOutlineCodeSandbox} from 'react-icons/ai'
 
 // call hooks in this pages
 const Navbar = () => {
@@ -76,7 +77,7 @@ const Navbar = () => {
               </>
             ) : (
               <div>
-                <div className={styles.welcome}>Wecome {username}</div>
+                <div className={styles.welcome}>Welcome {username}</div>
               </div>
             )}
           </>
@@ -98,24 +99,33 @@ const Navbar = () => {
             <br /> Board
           </div>
         </Link>
+ 
+        <Link href='/Form'>
         <div className={styles.menuItem}>
           <FaBox />
-          Collections
+          Upload
         </div>
+        </Link>
+        
         <div className={styles.menuItem}>
           <BsFillBookmarkFill />
           Saved
         </div>
+        <Link href='/MyAssets'>
         <div className={styles.menuItem}>
           <BsFillPersonFill />
           Profile
         </div>
+        </Link>
         <Link href='/History'>
           <div className={styles.menuItem}>
             <AiOutlineHistory />
             Transaction History
           </div>
         </Link>
+
+ 
+   
       </div>
       <div className={styles.companyName}>
         {/* <Image src={logoFull} alt='KMS' height={100} width={300} /> */}

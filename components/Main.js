@@ -5,12 +5,7 @@ import Header from './Header'
 import Featured from './Featured'
 
 
-
-
-
 const Main = () => {
-
-
   const styles = {
     container: `h-full w-full flex flex-col mt-[50px] pr-[50px] overflow-hidden`,
     recentTitle: `text-2xl font-bold text-center mb-[20px] text-center mt-[40px]`,
@@ -20,7 +15,6 @@ const Main = () => {
 }
 
   const {recentTransactions} = useContext(MarketContext)
-
 
   return (
     <div className={styles.container}>
@@ -55,7 +49,6 @@ const Main = () => {
             </div>
           )
         })}
-
     </div>
   )
 }

@@ -32,9 +32,13 @@ const BuyModal = ({close}) => {
     setEtherscanLink,
     buyTokens
   } = useContext(MarketContext)
+
+
   useEffect(() => {
     calculatePrice()
   }, [tokenAmount])
+
+
 
   const calculatePrice = () => {
     const price = parseFloat(tokenAmount * 0.0001)
@@ -42,6 +46,12 @@ const BuyModal = ({close}) => {
     setAmountDue(price)
   }
 
+
+
+
+
+
+  
   return (
     <div className={styles.container}>
       {isLoading ? (

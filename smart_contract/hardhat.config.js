@@ -14,7 +14,7 @@ module.exports = {
     defaultNetwork: "hardhat",
     networks: {
         hardhat: {
-            chainId: 31337,
+            chainId: 1337,
             // gasPrice: 130000000000,
             // on a test network, we dont need to define an accounts (20 fake accounts auto generated when you in a local hardhat network)
         },
@@ -24,15 +24,15 @@ module.exports = {
             chainId: 4,
             blockConfirmations: 6,
         },
-        mumbai:{
-            url :MUMMBAI_RPC_URL,
-            accounts:[PRIVATE_KEY]
-        },
-        mainnet:{
-            url: MAINNET_RPC_URL,
-            accounts:[PRIVATE_KEY]
+        // mumbai:{
+        //     url :MUMMBAI_RPC_URL,
+        //     accounts:[PRIVATE_KEY]
+        // },
+        // mainnet:{
+        //     url: MAINNET_RPC_URL,
+        //     accounts:[PRIVATE_KEY]
            
-        }
+        // }
         
     },
     solidity: {

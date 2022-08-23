@@ -8,7 +8,7 @@ import { MarketContext } from '../context/MarketContext'
 import { ModalProvider, Modal, useModal,ModalTransition} from 'react-simple-hook-modal'
 import 'react-simple-hook-modal/dist/styles.css';
 import BuyModal from './BuyModal'
-
+import Link from 'next/link'
 
 
 const Header = () => {
@@ -30,14 +30,7 @@ const {openModal, isModalOpen, closeModal} = useModal();
     <ModalProvider>
     <div className={styles.container}>
         <div className={styles.logo}>
-          {/* <Image
-            src={logo}
-            alt='Market'
-            height={50}
-            width={60}
-            className='object-cover'
-            
-          /> */}
+       
         </div>
         <div className={styles.search}>
           <input
@@ -48,7 +41,9 @@ const {openModal, isModalOpen, closeModal} = useModal();
           <IoMdSearch fontSize={20} />
         </div>
         <div className={styles.menu}>
-          <div className={styles.menuItem}>New Releases</div>
+          <Link href='/SellNFT'>
+            <div className={styles.menuItem}>New Version</div>
+          </Link>
           <div className={styles.menuItem}>Featured</div>
           {balance ? (
             <div

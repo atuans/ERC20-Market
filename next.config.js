@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  env: {
+        INFURA_IPFS_PROJECT_ID: process.env.INFURA_IPFS_PROJECT_ID,
+        INFURA_IPFS_PROJECT_SECRET: process.env.INFURA_IPFS_PROJECT_SECRET,
+    },
   swcMinify: true,
   images:{
     domains: [
@@ -13,6 +17,7 @@ const nextConfig = {
       'media3.giphy.com',
       'media2.giphy.com',
       'media4.giphy.com',
+      'img.rarible.com',
     ],
   }
 }

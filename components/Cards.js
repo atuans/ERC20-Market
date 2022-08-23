@@ -8,15 +8,6 @@ const Cards = () => {
 
     const {assets} = useContext(MarketContext)
 
-    const item = {
-        id: 0,
-        attributes:{
-            name:"NFT",
-            price:2,
-            src: 'https://media2.giphy.com/media/ho0xXatV7b3Fo1ZRXN/200w.webp?cid=ecf05e47c7kp6bvrao7ftvqttxb2xbuev6rl9oc4fx0mmnj4&rid=200w.webp&ct=g'
-        }
-    }
-
     const styles = {
     container: `h-full w-full flex flex-col ml-[20px] -mt-[50px]`,
     title: `text-xl font-bolder mb-[20px] mt-[30px]  ml-[30px]`,

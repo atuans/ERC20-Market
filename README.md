@@ -73,3 +73,42 @@ netlify help to deploy your project
 # Dice bear avatars
 
 DiceBear is an avatar library for designers and developers. You can choose between simple identicons and lovely designed characters.
+
+# Ether.js
+
+A Provider in ethers is a read-only abstraction to access the blockchain data.
+
+- JSON-RPC Provider
+
+* The JSON-RPC API is a popular method for interacting with Ethereum and is available in all major Ethereum node implementations
+  ethers.providers.JsonRpcProvider( [ urlOrConnectionInfo [ , networkish ] ] )
+
+# IPFS
+
+https://github.com/ipfs/js-ipfs/blob/master/packages/ipfs-http-client/README.md
+
+How do we show the recently listed NFTS ?
+
+-- we will index the events off-chain and then read from our database
+-- Setup a server to listen fo those events to be fired
+
+# Moralis - Live query
+
+- When subscribe to an event happening on a table in backend
+  Ex : We create a object Monster, we want whenever a monster joined, we will create an event for a Monster appear
+
+let query = new Moralis.Query('Game');
+let subscription = await query.subscribe();
+
+- The subscription you get is actually an event emitter
+
+=> So, we have an event emitter, we need to handling some of that event
+
+- open event
+  subscription.on('open', () => {
+  console.log('subscription opened');
+  });
+
+  When you call query.subscribe(), we send a subscribe request to the LiveQuery server. When we get the confirmation from the LiveQuery server, this event will be emitted.
+
+* yêu cầu trang profile của 1 ví bất kì đều có thể xem được từ những địa chỉ ví khác

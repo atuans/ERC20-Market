@@ -3,6 +3,10 @@ import { useMoralis, useMoralisQuery } from "react-moralis";
 import {ModalABI, ModalAddress} from '../constant/constants'
 import {ethers} from 'ethers';
 
+import { MarketABI, MarketAddress } from "../constant/constants";
+
+
+
 export const MarketContext = createContext ();
 export const MarketProvider = ({children}) =>{
 
@@ -18,7 +22,7 @@ export const MarketProvider = ({children}) =>{
   const [assets, setAssets] = useState([])
   const [recentTransactions, setRecentTransactions] = useState([])
   const [ownedItems, setOwnedItems] = useState([])
- 
+
 
   //for authentication and user data
   const {
@@ -42,7 +46,9 @@ export const MarketProvider = ({children}) =>{
     isLoading: assetsDataIsLoading,
   } = useMoralisQuery('Product')
 
-    const getBalance = async () => {
+
+  /********************************************************************* */
+  const getBalance = async () => {
     try {
       if (!isAuthenticated || !currentAccount) 
       return
@@ -65,6 +71,9 @@ export const MarketProvider = ({children}) =>{
     }
   }
 
+
+
+  /**********************Use Effect******************************* */
   useEffect(() => {
     ;(async() =>{
     console.log(assetsData)
@@ -113,17 +122,9 @@ export const MarketProvider = ({children}) =>{
  
  
  
+
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  const connectWallet = async () => {
+  const connectWallet = async () => { // this will connect Metamask and request a signer, No gas required
     await enableWeb3()
     await authenticate()
   }
@@ -209,6 +210,39 @@ export const MarketProvider = ({children}) =>{
     }
   }
 
+
+  const buyNFTs = async (price, tokenId) => {
+       if (!isAuthenticated) 
+      return
+      console.log('price: ', price)
+      console.log(userData)
+
+      const options = {
+        type:"erc721",
+        receiver:MarketAddress,
+        amount:price,
+        contractAddress: MarketAddress,
+        tokenId: tokenId
+      }
+      let transaction = await Moralis.transfer(options);
+      const receipt = await transaction.wait();
+
+         if (receipt) {
+
+        const res = userData[0].add('ownedAsset', {
+          ...tokenId,
+          purchaseDate: Date.now(),
+          etherscanLink: `https://rinkeby.etherscan.io/tx/${receipt.transactionHash}`,
+        })
+
+        await res.save().then(() => {
+          alert("You've successfully purchased this asset!")
+        })
+      }
+
+  }
+
+
   const getAssets = async () => {
     try {
       await enableWeb3()
@@ -225,7 +259,7 @@ export const MarketProvider = ({children}) =>{
 
   const listenToUpdates = async () => {
     let query = new Moralis.Query('EthTransactions')
-    let subscription = await query.subscribe()
+    let subscription = await query.subscribe()  // live query update
     subscription.on('update', async object => {
       console.log('New Transactions')
       console.log(object)
@@ -235,7 +269,7 @@ export const MarketProvider = ({children}) =>{
 
   const getOwnedAssets = async () => {
     try {
-      if (userData[0]) {
+      if (userData[0]) { // [0] is currently login account
         setOwnedItems(prevItems => [
           ...prevItems,
           userData[0].attributes.ownedAsset,
@@ -272,6 +306,8 @@ export const MarketProvider = ({children}) =>{
         assets,
         recentTransactions,
         ownedItems,
+        buyNFTs
+       
       }}
       >
         {children}
