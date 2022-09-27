@@ -14,7 +14,7 @@ npx hardhat run scripts/deploy.js
 
 # Node providers
 
-- Basically, osting smart contracts requires you to set up a node of the blockchain on which you want to host them
+- Basically, hosting smart contracts requires you to set up a node of the blockchain on which you want to host them
 - This is what platforms like Infura and Alchemy aim to solve, In essence, they are node providers; i.e., they provide remote access to blockchain services so you don’t have to run your own node.
 
 Ref : https://blog.logrocket.com/alchemy-vs-infura-which-node-provider-best/
